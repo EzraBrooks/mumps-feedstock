@@ -78,7 +78,7 @@ outputs:
             - patchelf
         # python version specified to avoid windows build matrix
         # not sure why that happens
-        - python 3.11.*
+        - python ${{ python_min }}.*
         - if: mpi == 'openmpi' and build_platform != target_platform
           then: ${{ mpi }}
       host:
@@ -285,7 +285,7 @@ outputs:
             - patchelf
         - if: "mpi == 'openmpi' and build_platform != target_platform"
           then: ${{ mpi }}
-        - python 3.11.*
+        - python ${{ python_min }}.*
       host:
         - libblas
         - liblapack
